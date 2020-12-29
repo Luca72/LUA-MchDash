@@ -7,14 +7,17 @@ LUA widget for Horus/Tx16s, etc to display dashboard for construction machinery
 
 Copy the MchDash folder on SD card inside the Widget folder.
 
+
+
 Before use personalize the widget editing the main.lua file:
 
-############################ CONFIGURATION ##############################
 
-WIDGET NAME
+--- ############################ CONFIGURATION ##############################
+
+-- WIDGET NAME
 local widgetName = "MchDash"
 
-CONFIGURATION
+-- CONFIGURATION
 local MODE_SWITCH_PRES = true
 
 local CENT_LOCK_PRES = false
@@ -24,19 +27,20 @@ local REAR_LOCK_PRES = false
 local FRONT_LOCK_PRES = false
 
 
-SWITCHES
-local SW_MODE = 'se'        -100% = main_A pic | 0% = main_B pic | 100% = main_C pic
+-- SWITCHES
+local SW_MODE = 'se'        -- -100% = main_A pic | 0% = main_B pic | 100% = main_C pic
 
-local SW_CENT_LOCK = 'sd'   -100% = no lock | >= 0% = lock
+local SW_CENT_LOCK = 'sd'   -- -100% = no lock | >= 0% = lock
 
-local SW_AXLES_LOCK = 'sa'  -100% = no lock | 0% = rear lock | 100% = front lock
+local SW_AXLES_LOCK = 'sa'  -- -100% = no lock | 0% = rear lock | 100% = front lock
 
 
-CHANNELS
+-- CHANNELS
 local OUT_PUMP = 'ch3'      pump output channel
 
+--- #########################################################################
 
-#########################################################################
+
 
 widgetName: must be the same of the Widget folder name (you can change it at your pleasure)
 
@@ -55,6 +59,8 @@ SW_CENT_LOCK: set your central difflock switch (if you have one). default: 'sd',
 SW_AXLES_LOCK: set your axles difflock switch (if you have one). default: 'sa', values: -100% = no lock | 0% = rear lock | 100% = front lock
 
 OUT_PUMP: set your oil pump channel. default: 'ch3'
+
+
 
 
 PICTURES:
