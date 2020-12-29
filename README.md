@@ -9,26 +9,26 @@ Copy the MchDash folder on SD card inside the Widget folder.
 
 Before use personalize the widget editing the main.lua file:
 
----- ############################ CONFIGURATION ##############################
+############################ CONFIGURATION ##############################
 
--- WIDGET NAME
+WIDGET NAME
 local widgetName = "MchDash"
 
--- CONFIGURATION
+CONFIGURATION
 local MODE_SWITCH_PRES = true
 local CENT_LOCK_PRES = false
 local REAR_LOCK_PRES = false
 local FRONT_LOCK_PRES = false
 
--- SWITCHES
-local SW_MODE = 'se'       -- -100% = main_A pic | 0% = main_B pic | 100% = main_C pic
-local SW_CENT_LOCK = 'sd'  -- -100% = no lock | >= 0% = lock
-local SW_AXLES_LOCK = 'sa' -- -100% = no lock | 0% = rear lock | 100% = front lock
+SWITCHES
+local SW_MODE = 'se'        -100% = main_A pic | 0% = main_B pic | 100% = main_C pic
+local SW_CENT_LOCK = 'sd'   -100% = no lock | >= 0% = lock
+local SW_AXLES_LOCK = 'sa'  -100% = no lock | 0% = rear lock | 100% = front lock
 
--- CHANNELS
-local OUT_PUMP = 'ch3'     -- pump output channel
+CHANNELS
+local OUT_PUMP = 'ch3'      pump output channel
 
----- #########################################################################
+#########################################################################
 
 widgetName: must be the same of the Widget folder name (you can change it at your pleasure)
 MODE_SWITCH_PRES: set true if you use a swith to activate different parts of your model (see PICTURES)
