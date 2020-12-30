@@ -5,9 +5,9 @@ local widgetName = "MchDash"
 
 -- CONFIGURATION
 local MODE_SWITCH_PRES = true
-local CENT_LOCK_PRES = false
-local REAR_LOCK_PRES = false
-local FRONT_LOCK_PRES = false
+local CENT_LOCK_PRES = true
+local REAR_LOCK_PRES = true
+local FRONT_LOCK_PRES = true
 
 -- SWITCHES
 local SW_MODE = 'se'       -- -100% = main_A pic | 0% = main_B pic | 100% = main_C pic
@@ -50,20 +50,20 @@ local SW_STATE_CENT_MAX = 10
 
 local function createWidget(zone, options)
  local bitmaps = {
-    mainA = Bitmap.open("/WIDGETS/CatM318/img/main_A.png"),
-    mainB = Bitmap.open("/WIDGETS/CatM318/img/main_B.png"),
-    mainC = Bitmap.open("/WIDGETS/CatM318/img/main_C.png"),
-    fuelGauge = Bitmap.open("/WIDGETS/CatM318/img/fuel_gauge.png"),
-    fuelGaugeOFF = Bitmap.open("/WIDGETS/CatM318/img/fuel_gauge_off.png"),
-    oilGauge = Bitmap.open("/WIDGETS/CatM318/img/oil_gauge.png"),
-    fuelLampON = Bitmap.open("/WIDGETS/CatM318/img/fuel_lamp_on.png"),
-    fuelLampOFF = Bitmap.open("/WIDGETS/CatM318/img/fuel_lamp_off.png"),
-    centLockLampON = Bitmap.open("/WIDGETS/CatM318/img/cent_lock_lamp_on.png"),
-    centLockLampOFF = Bitmap.open("/WIDGETS/CatM318/img/cent_lock_lamp_off.png"),
-    rearLockLampON = Bitmap.open("/WIDGETS/CatM318/img/rear_lock_lamp_on.png"),
-    rearLockLampOFF = Bitmap.open("/WIDGETS/CatM318/img/rear_lock_lamp_off.png"),            
-    frontLockLampON = Bitmap.open("/WIDGETS/CatM318/img/front_lock_lamp_on.png"),
-    frontLockLampOFF = Bitmap.open("/WIDGETS/CatM318/img/front_lock_lamp_off.png"),                                
+    mainA = Bitmap.open("/WIDGETS/".. widgetName .. "/img/main_A.png"),
+    mainB = Bitmap.open("/WIDGETS/".. widgetName .. "/img/main_B.png"),
+    mainC = Bitmap.open("/WIDGETS/".. widgetName .. "/img/main_C.png"),
+    fuelGauge = Bitmap.open("/WIDGETS/".. widgetName .. "/img/fuel_gauge.png"),
+    fuelGaugeOFF = Bitmap.open("/WIDGETS/".. widgetName .. "/img/fuel_gauge_off.png"),
+    oilGauge = Bitmap.open("/WIDGETS/".. widgetName .. "/img/oil_gauge.png"),
+    fuelLampON = Bitmap.open("/WIDGETS/".. widgetName .. "/img/fuel_lamp_on.png"),
+    fuelLampOFF = Bitmap.open("/WIDGETS/".. widgetName .. "/img/fuel_lamp_off.png"),
+    centLockLampON = Bitmap.open("/WIDGETS/".. widgetName .. "/img/cent_lock_lamp_on.png"),
+    centLockLampOFF = Bitmap.open("/WIDGETS/".. widgetName .. "/img/cent_lock_lamp_off.png"),
+    rearLockLampON = Bitmap.open("/WIDGETS/".. widgetName .. "/img/rear_lock_lamp_on.png"),
+    rearLockLampOFF = Bitmap.open("/WIDGETS/".. widgetName .. "/img/rear_lock_lamp_off.png"),            
+    frontLockLampON = Bitmap.open("/WIDGETS/".. widgetName .. "/img/front_lock_lamp_on.png"),
+    frontLockLampOFF = Bitmap.open("/WIDGETS/".. widgetName .. "/img/front_lock_lamp_off.png"),                                
   }  
 
  local widget = {
@@ -295,6 +295,7 @@ local function drawFrontLockLamp(widget, position)
   end
 end
 
+local credits = "Dashboard V0.1 by Luca72"
 
 --- Zone size: 70x39 1/8th top bar
 local function refreshZoneTiny(widget)
@@ -353,6 +354,10 @@ local function refreshZoneXLarge(widget)
   if FRONT_LOCK_PRES then
     drawFrontLockLamp(widget, frontLockLampPos)
   end
+  
+  -- draw credits
+  lcd.setColor( CUSTOM_COLOR, lcd.RGB(160,125,15))
+  lcd.drawText(widget.zone.x + 290, widget.zone.y + widget.zone.h - 8, credits, LEFT + SMLSIZE + CUSTOM_COLOR)
   
   collectgarbage()
   collectgarbage()  
